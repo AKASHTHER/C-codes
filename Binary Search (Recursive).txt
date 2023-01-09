@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int Binary_search(int A[],int beg, int end, int x)
+{
+    if (end>=beg)
+    {
+        int mid = (beg + (end-1) )/ 2;
+        
+        if (A[mid]==x)
+        {
+            return mid;
+        }
+        else if (A[mid] > x)
+        {
+            return Binary_search(A,mid+1,end,x);
+        }
+        else
+        {
+            return Binary_search(A,beg,mid-1,x);
+        }
+    }
+    return -1;
+}
+int main()
+{
+   int A[] = { 2, 5, 9, 15, 19, 18, 43};
+   int beg = 0;
+   int end = sizeof(A)/sizeof(int);
+   int x =15;
+   int result = Binary_search(A,beg,end,x);
+   (result == -1) ? printf("Element not found") : printf("Element found at location %d",result);
+   return 0;
+}
+

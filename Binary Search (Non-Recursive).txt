@@ -1,0 +1,44 @@
+#include<stdio.h>
+int main()
+{
+    int A[20], beg, end, mid, x;
+    int n;
+    printf("Printf Enter number of array elements=");
+    scanf("%d",&n);
+    printf("Enter the elements in ascending order");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d",&A[i]);
+    }
+    printf("Enter the element =");
+    scanf("%d",&x);
+    beg = 0;
+    end = n-1;
+    while (end >= beg)
+    {
+        mid  = (beg + end)/2;
+        if (A[mid] == x)
+        {
+            break;
+        }
+        else if (A[mid] > x)
+        {
+            beg = mid+1;
+        }
+        else 
+        {
+            end = mid -1;
+        }
+        
+    }
+    if ( x == A[mid])
+    {
+        printf("Element found at location %d", mid);
+    }
+    else
+    {
+        printf("The element not found");
+    }
+    return 0;
+}
+
